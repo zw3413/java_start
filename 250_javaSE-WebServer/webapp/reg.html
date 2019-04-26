@@ -1,0 +1,131 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>欢迎注册新用户</title>
+<link rel="stylesheet" href="reg.css"/>
+<script type="text/javascript">
+var un_format="5-8位_、字母、数字";
+var pw_format="8-16位_、字母、数字";
+var reg_un=/^\w{5,8}$/;
+var reg_pw=/^\w{8,16}$/;
+	
+function checkUsername(){
+	var usernameObj=document.getElementById("usernameinput");
+	var usernamespanObj=document.getElementById("usernamespan");
+	if(reg_un.test(usernameObj.value)){
+		usernamespanObj.className="ok";
+		usernamespanObj.innerHTML= "ok: "+un_format;
+	}else{
+		usernamespanObj.className="error";
+		usernamespanObj.innerHTML= "error: "+un_format;
+	}
+}
+
+function checkPassword(){
+	var passwordObj=document.getElementById("passwordinput");
+	var passwordspanObj=document.getElementById("passwordspan");
+	if(reg_pw.test(passwordObj.value)){
+		passwordspanObj.className="ok";
+		passwordspanObj.innerHTML= "ok: "+pw_format;
+	}else{
+		passwordspanObj.className="error";
+		passwordspanObj.innerHTML= "error: "+pw_format;
+	}	
+}
+</script>
+</head>
+<body>
+<div style="margin:0 auto; width:960px">
+<img id="headimg" src="./images/lol.png"/>
+</div>
+<div style="margin:0 auto; width:500px; border:0px;" >
+		<h3 align="center">填写注册信息</h3>
+		<form action="reg" method="get">
+			<table  align="center" border="1" cellspacing="0">
+				<tr>
+					<td class="td_item">用户名</td>
+					<td class="td_info"><input name="username" id="usernameinput" type="text" size="30px" onblur="checkUsername()" /></td>
+					<td><span id="usernamespan" style="font-size:10"><script>var span=document.getElementById("usernamespan");span.innerHTML=un_format;</script></span></td>
+				</tr>
+				<tr>
+					<td class="td_item">密码</td>
+					<td><input name="password" type="password" id="passwordinput" size="30" onblur="checkPassword()"/></td>
+					<td><span id="passwordspan" style="font-size:10"><script>var span=document.getElementById("passwordspan");span.innerHTML=pw_format;</script></span></td>
+				<tr>
+					<td class="td_item">性别</td>
+					<td colspan="2">
+						<input name="gender" id="male" type="radio" checked/><label for="male">男</label>
+						<input name="gender" id="female" type="radio" /><label for="female">女</label>
+					</td>
+					
+				</tr>
+				<tr>
+					<td class="td_item">昵称</td>
+					<td><input name="nickname" type="text" size="30" /></td>
+				</tr>
+				<tr>
+					<td class="td_item">头像</td>
+					<td><input type="file"/></td>
+				</tr>
+				<tr>
+					<td class="td_item">城市</td>
+					<td><select>
+						<option>--请选择--</option>
+						<option>北京</option><option class="southcity">上海</option><option class="southcity">广州</option><option class="southcity">深圳</option><option class="southcity">南京</option>
+						<option class="southcity">杭州</option><option class="southcity">宁波</option><option class="southcity">金华</option><option class="southcity">绍兴</option><option class="southcity">嘉兴</option>
+						<option class="southcity">丽水</option><option class="southcity">慈溪</option><option class="southcity">泰州</option><option >黑龙江</option><option>长春</option>
+						<option>乌鲁木齐</option><option>拉萨</option><option class="southcity">西宁</option><option>哈尔滨</option>
+						<option class="southcity">温州</option><option class="southcity">衢州</option><option>郑州</option><option>兰州</option><option>吉林</option>
+						<option>西安</option><option>咸阳</option><option>洛杉矶</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="td_item">兴趣</td>
+					<td>
+					<input name="interesting" id="climbing" type="checkbox"/><label for="climbing">爬山</label>
+					<input name="interesting" id="reading" type="checkbox"/><label for="reading">读书</label>
+					<input name="interesting" id="sleeping" type="checkbox"/><label for="sleeping">养生</label>
+					<input name="interesting" id="technology" type="checkbox"/><label for="technology">科技</label>
+					<input name="interesting" id="girls" type="checkbox"/><label for="girls">美女</label>
+					<input name="interesting" id="halking" type="checkbox"/><label for="halking">徒步</label>
+					<input name="interesting" id="famous" type="checkbox"/><label for="famous">明星</label>
+					<input name="interesting" id="sociate" type="checkbox"/><label for="sociate">社交</label>
+					<input name="interesting" id="painting" type="checkbox"/><label for="painting">美术</label>
+					<input name="interesting" id="music" type="checkbox"/><label for="music">音乐</label>
+					<input name="interesting" id="army" type="checkbox"/><label for="army">军事</label>
+					<input name="interesting" id="shooting" type="checkbox"/><label for="shooting">摄影</label>
+					<input name="interesting" id="travelling" type="checkbox"/><label for="travelling">旅游</label>
+					<input name="interesting" id="basketball" type="checkbox"/><label for="basketball">篮球</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="td_item">个人介绍</td>
+					<td><textarea cols="39	" rows="8"></textarea>
+				</tr>
+			</table>
+			<table  border="0" cellspacing="0">
+			<tr>
+				<td align="center" width="250"><input type="submit"value="注册" /></td>
+				<td align="center" width="250"><input type="reset"  value="重置"/></td>
+			</tr>
+			</table>
+		</form>
+
+</div>
+<div align="center" style="margin:0px auto; width:1080">
+<img class="btimg" src="./images/01.jpg"/>
+<img class="btimg" src="./images/02.jpg"/>
+<img class="btimg" src="./images/03.jpg"/>
+<img class="btimg" src="./images/04.jpg"/>
+<img class="btimg" src="./images/05.jpg"/>
+<img class="btimg" src="./images/06.jpg"/>
+</div>
+
+<hr/>
+<div id="links" align="center">
+	<a href="http://localhost:8088/index.html">INDEX</a> <a href="http://localhost:8088/index.html">LOGIN</a>&nbsp;All rights reserved 2017. &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.tmooc.cn">TMOOC</a>  <a href="http://doc.tedu.cn">DOC</a>
+</div>
+
+</body>
+</html>

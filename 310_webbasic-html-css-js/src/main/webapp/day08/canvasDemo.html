@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+div{
+margin:0;
+padding:0;
+border:1px solid blue;
+}
+</style>
+<body>
+<div>
+<canvas id="myCanvas" color="black">Test if the browser support the canvas tag.</canvas>
+<script type="text/javascript">
+var canvas=document.getElementById("myCanvas");
+var context=canvas.getContext('2d');
+context.fillStyle='#FF0000';
+context.fillRect(0,0,150,75);
+context.moveTo(10,10);
+context.lineTo(100,70);
+context.lineTo(10,70);
+context.stroke();
+</script>
+</div>
+<div >
+<canvas id="myCanvas1" color='black'></canvas>
+<script>
+var canvas=document.getElementById("myCanvas1");
+var ctx=canvas.getContext('2d');
+ctx.fillStyle='#FF0000';
+ctx.beginPath();
+ctx.arc(70,18,15,0,Math.PI*2,true);
+ctx.closePath();
+ctx.fill();
+</script>
+</div>
+<div>
+<canvas id="myCanvas2"></canvas>
+<script>
+var canvas=document.getElementById("myCanvas2");
+var cxt=canvas.getContext('2d');
+var grd=cxt.createLinearGradient(0,0,300,50);
+grd.addColorStop(0,'#F00');
+grd.addColorStop(0.5,'#0F0');
+grd.addColorStop(1,'#00f');
+cxt.fillStyle=grd;
+cxt.fillRect(0,0,300,100);
+
+</script>
+</div>
+<div>
+<canvas id="myCanvas3"></canvas>
+<script>
+var canvas=document.getElementById('myCanvas3');
+var cxt=canvas.getContext('2d');
+var img=new Image();
+img.src='../images/add.png';
+cxt.drawImage(img,0,0);
+
+</script>
+</div>
+</body>
+</html>

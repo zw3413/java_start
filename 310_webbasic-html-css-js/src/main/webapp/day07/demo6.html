@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片轮播</title>
+<style>
+.hide{
+display:none;
+}
+.d1{
+border:1px solid red;
+width:218px;
+height:218px;
+margin:30px auto;
+}
+
+</style>
+<script>
+
+window.onload=function(){
+	setInterval(fn,2000);
+}
+var n=0;
+function fn(){
+	var imgs = document.getElementsByTagName("img");
+	for(var i=0;i<imgs.length;i++){
+		imgs[i].className="hide";
+	}
+	var next=n%6;
+	imgs[next].className="";
+	n++;
+}
+
+
+</script>
+</head>
+<body>
+<div class="d1">
+
+<img id="i1" src="../images/01.jpg"/>
+<img id="i2" src="../images/02.jpg"/>
+<img id="i3" src="../images/03.jpg"/>
+<img id="i4" src="../images/04.jpg"/>
+<img id="i5" src="../images/05.jpg"/>
+<img id="i6" src="../images/06.jpg"/>
+
+
+</div>
+
+</body>
+</html>

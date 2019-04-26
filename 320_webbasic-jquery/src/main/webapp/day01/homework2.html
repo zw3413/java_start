@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>开发一个网页，包含几个段落，增加一个按钮"-"， 每次点击该按钮的时候，将所有段落的字号减小1px</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+$(function(){
+	var reduce=$("input")[0];
+	reduce.onclick=function(){
+		var ps=$('p');
+		var size=ps.css("font-size");
+		size=size.replace("px","");
+		ps.css("font-size",--size+"px");
+	}
+});
+
+
+</script>
+</head>
+<body>
+<input type="button" value="-">
+<p>段落一</p>
+<p>段落二</p>
+<p>段落三</p>
+</body>
+</html>

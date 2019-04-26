@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>省市联动的案例</title>
+
+<script type="text/javascript">
+	var citys;
+
+	window.onload = function() {
+		//模拟查询所有城市信息
+		citys = [["郑州", "洛阳", "南阳"], ["青岛", "济南", "日照"], ["徐州", "苏州", "无锡"]];
+	}
+
+	function change() {
+		var province = document.getElementById("province");
+		var city = document.getElementById("city");
+		var citysCrnt=city.getElementsByTagName("option");
+		console.log(citysCrnt.length);
+		for(i=citysCrnt.length-1;i>0;i--){
+			console.log("removing ", citysCrnt[i]);
+			city.removeChild(citysCrnt[i]);
+		}
+		var prvcIndex = province.value;
+		if(prvcIndex!="-1"){
+			for (i = 0; i < citys[prvcIndex].length; i++) {
+				var option=document.createElement("option");
+				option.innerHTML=citys[prvcIndex][i];
+				city.appendChild(option);
+			}
+		}
+	}
+</script>
+
+</head>
+
+
+
+<body>
+	省<select id="province" onchange="change();">
+		<option value="-1">请选择</option>
+		<option value="0">河南</option>
+		<option value="1">山东</option>
+		<option value="2">江苏</option>
+	</select>
+
+	市<select id="city">
+		<option>请选择</option>
+
+	</select>
+
+</body>
+</html>

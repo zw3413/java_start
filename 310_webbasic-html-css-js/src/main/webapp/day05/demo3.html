@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>计算平方</title>
+<script>
+function pf(){
+	//获取文本框
+	var input=document.getElementById("num");
+	//获取框内的值
+	var x= input.value;
+	console.log(typeof(x));
+	//获取span
+	var span=document.getElementById("result");
+	//判断该值是不是数字
+	if(isNaN(x)){
+		//不是数字，给予提示
+		span.innerHTML="请输入数字"
+	}else{
+		//是数字，就计算平方，将结果写入span
+		span.innerHTML=x*x;
+	}
+}
+</script>
+</head>
+<body>
+<input type="text" id="num"/>
+<input type="button" value="平方" onclick="pf()"/>
+<span id="result"></span>
+
+</body>
+</html>

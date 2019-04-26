@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var id;
+window.onload=function(){
+id=setInterval(start,2000);
+}
+function start(){
+	var imgs=document.getElementsByTagName("img");
+	for(i=1;i<imgs.length;i++){
+		imgs[i].setAttribute("class","hide");
+    }
+    next=n%imgs.length;
+    	imgs[next].removeAttribute("class");
+    
+}
+
+
+</script>
+<style type="text/css">
+div{
+border:1px solid red;
+width:218px;
+height:218px;
+margin:30px auto;
+}
+.hide{
+display:none;
+}
+
+</style>
+</head>
+<body>
+
+<div>
+<img id="img1" src="../images/01.jpg"/>
+<img id="img2" src="../images/02.jpg"/>
+<img id="img3" src="../images/03.jpg"/>
+<img id="img4" src="../images/04.jpg"/>
+<img id="img5" src="../images/05.jpg"/>
+<img id="img6" src="../images/06.jpg"/>
+</div>
+
+
+
+
+</body>
+</html>

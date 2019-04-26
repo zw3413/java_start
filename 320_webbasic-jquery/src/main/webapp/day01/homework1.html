@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>开发计算器案例</title>
+<style>
+#jsq{
+border:1px solid #ccc;
+width:200px;
+height:250px;
+margin:30px auto;
+padding:10px;
+}
+#jsq>input{
+float:left;
+width:40px;
+height:40px;
+margin:5px;
+}
+#screen{
+float:left;
+display:block;
+border:1px solid #ccc;
+margin:5px;
+width:138px;
+height:38px;
+}
+</style>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+$(function(){
+	
+	
+});
+
+function jsq(e){
+	var screen=$('#screen');
+	var target=e.target||srcElement;
+	if(target.nodeName=="INPUT"){
+		if(target.value=='C'){
+			screen[0].innerHTML="";
+		}else if(target.value=="="){
+			try{
+				screen[0].innerHTML=eval(screen[0].innerHTML);
+			}catch(ex){
+				screen[0].innerHTML="error";
+			}
+		}else{
+			if(screen[0].innerHTML=="error"){
+				screen[0].innerHTML=="";
+			}else{
+			screen[0].innerHTML+=target.value;
+			}
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+<div id="jsq" onclick="jsq(event);">
+<p id="screen"></p>
+<input type="button" value="C"/>
+<input type="button" value="7" />
+<input type="button" value="8" />
+<input type="button" value="9" />
+<input type="button" value="+" />
+<input type="button" value="4" />
+<input type="button" value="5" />
+<input type="button" value="6" />
+<input type="button" value="-" />
+<input type="button" value="1" />
+<input type="button" value="2" />
+<input type="button" value="3" />
+<input type="button" value="*" />
+<input type="button" value="0" />
+<input type="button" value="." />
+<input type="button" value="=" />
+<input type="button" value="/" />
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQery读写节点（内容，值，属性）</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+$(function(){
+	var p1html=$('p:first').html()
+	console.log(p1html);
+	p1html=p1html.replace("<b>","<u>");
+	p1html=p1html.replace("</b>","</u>");
+	$('p:first').html(p1html);
+	
+	console.log($('p:eq(1)').text());
+	$('p:eq(1)').text('jQuery支持<b>读写</b>节点');
+	
+	
+	console.log($(':text:first').val());
+	$(':text:first').val("你好");
+	
+	console.log($('[src$=".jpg"]').attr('src'));
+	$('img:first').attr("src","../images/2.jpg");
+});
+
+
+</script>
+</head>
+<body>
+<p>jQuery支持<b>读写</b>节点</p>
+<p>jQuery支持<b>查询</b>节点</p>
+<p>jQuery支持<b>增删</b>节点</p>
+<input type="text" value="hello"/>
+<input type="image" src='../images/3.jpg' value="hello"/>
+<img src="../images/1.jpg">
+</body>
+</html>

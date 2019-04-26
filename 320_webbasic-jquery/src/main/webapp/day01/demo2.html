@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery对象与DOM对象</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+function prt(){
+	var ps=$("p");
+	console.log(ps);
+	for(var i=0;i<ps.length;i++){
+		console.log(ps[i].innerHTML);
+	}
+}
+
+function chg(img){
+	if($(img).width()==218){
+		$(img).width(250).height(250);
+	}else{
+		$(img).width(218).height(218);
+	}
+}
+
+</script>
+</head>
+<body>
+<input type="button" value="打印"  onclick="prt();"/>
+<p>jQuery对象本质上是DOM数组</p>
+<p>jQuery对象可以调用jQuery方法</p>
+<p>DOM对象可以调用DOM方法</p>
+<p>jQuery对象不能调用DOM方法</p>
+<p>DOM对象不能调用jQuery方法</p>
+<div>
+<img src="../images/01.jpg" onclick="chg(this);"/>
+<img src="../images/02.jpg" onclick="chg(this);"/>
+<img src="../images/03.jpg" onclick="chg(this);"/>
+</div>
+</body>
+</html>

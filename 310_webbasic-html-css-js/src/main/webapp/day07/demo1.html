@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>window对象和他的方法</title>
+<style>
+
+.ok(){
+color:green;
+}
+
+</style>
+<script type="text/javascript">
+
+function f1(){
+	window.alert(' "window.alert()" 弹出了框框 \n浏览器自带的消息接口，用于向用户提醒信息');
+}
+function f2(){
+	var b;
+	b=	window.confirm('"window.confirm()" 弹出了框框 \n浏览器自带的消息接口，用于让用户确认某个信息，如果点击确认，则返回true。');
+	console.log(b);
+}
+function f3(){
+	var r;
+	r=window.prompt('"window.prompt()" 用于向用户询问信息，让用户输入一行信息，以字符串格式返回。');
+	console.log(r);
+}
+function f4(){
+	//启动周期性计时器，每隔1000ms调用一次函数
+	//该方法返回定时器的ID，此ID用于停止定时器。
+	var i=5;
+	//启动周期性定时器
+	var id=setInterval(function(){
+		console.log(i--);
+		if(!i){
+			clearInterval(id);
+			console.log("DUANG!");
+		}
+	},1000);
+	//定时器类似于线程，当前方法f4类似于主线程，
+	//定时器类似于支线程，而主线程与支线程是并发的，所以在启动定时器后，线程并不等待，而是立刻向下执行
+	//所以立刻输出了BOOM，定时器却在1秒后才开始执行。
+	console.log("boom!");
+	
+	var id1=setInterval(function(){
+		if(!i){
+			console.log("DUANGDUANG!");
+			clearInterval(id1);
+		}
+	},50);
+}
+var id2;
+function f5(){
+	//启动一次性定时器，在10秒后调用某函数，
+	id2=setTimeout(function(){
+		alert("10s 到了");
+		//一次性定时器，执行一次后自动停止。
+	},10000);	
+}
+function f6(){
+	clearTimeout(id2);
+}
+
+</script>
+</head>
+<body>
+<input type="button" value="按钮1" onclick="f1()"/>
+<input type="button" value="按钮2" onclick="f2()"/>
+<input type="button" value="按钮3" onclick="f3()"/>
+<input type="button" value="倒数" onclick="f4()"/>
+<input type="button" value="闹铃" onclick="f5()"/>
+<input type="button" value="取消" onclick="f6()"/>
+
+</body>
+</html>

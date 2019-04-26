@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS 基本语法</title>
+<script>
+	//此处所写的代码有两种情况：
+	//1.定义函数，该函数是在页面加载后，用户点击某按钮后调用的
+	//2.直接书写JS，这样的JS是在页面加载时，直接调用的，其调用的时机比body还要早。
+	//1.声明变量
+	console.log("控制台打印")
+	var x;
+	console.log(x);
+	x=5;
+	console.log(x);
+	var y=6;
+	console.log(y);
+	//2.数据类型
+	var s="hello";
+	var n=3.14;
+	var b=true;
+	console.log(s);
+	console.log(n);
+	console.log(b);
+	//3.隐式转换
+	console.log(s+n);//String+number：数字隐式转换为字符串
+	console.log(s+b);//String+boolean:boolean转换为"true"
+	console.log(n+b);//number+boolean:boolean转换为1 或0
+	//4.强制转换
+	console.log(parseInt(3.14));
+	console.log(parseInt("5.16"));//将字符串转换为整数
+	console.log(parseInt("abc"));//转换不了
+	console.log(parseInt(""));//转换不了
+	console.log(parseInt(true));//转换不了
+	console.log(parseFloat("5.16"));
+	//5.判断变量或者返回值类型
+	console.log(typeof(2.15));
+	console.log(typeof("2.15"));
+	console.log(typeof(parseInt("25.1")));
+	console.log(typeof(""+true));
+	console.log(isNaN(56));
+	console.log(isNaN("56"));
+	console.log(isNaN('abc'));
+	console.log(isNaN(""));
+	console.log(parseInt(""));
+	//6.运算符
+	console.log(5=="5");
+	console.log(5==="5");
+	//7.条件表达式
+	//js可以用任何数据做条件，当以非布尔值做条件时，
+	//空值等价于false，非空值等价于true;
+	//空值：0，null,"",undefined,NaN
+	//这样设计的目的是为了简化判断的逻辑
+	var k=NaN;
+	if(k){
+		console.log("ok");
+	}
+	
+	var w=null;
+	w && console.log("好");
+	
+	
+</script>
+</head>
+<body>
+<p>
+在这个网页上演示基本语法。
+</p>
+</body>
+</html>

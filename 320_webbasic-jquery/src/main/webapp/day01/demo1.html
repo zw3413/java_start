@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文字放大</title>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script>
+function bigger(){
+	//获取段落原始的字号（16px)
+	var size=$("p").css("font-size");
+	//去掉单位，以便于计算
+	size=size.replace("px","");
+	//加1后再设置给所有段落
+	$("p").css("font-size",++size+"px");
+	console.log(size);
+}
+
+function smaller(){
+	var size=$('p').css("font-size");
+	size=size.slice(-1,-5);
+	console.log(size);
+}
+</script>
+</head>
+<body>
+	<input type="button" value="+" onclick="bigger();"/>
+	<input type="button" value="-" onclick="smaller();"/>
+	<p>jQuery是一个优秀的前端框架</p>
+	<p>它提供了简介而一致的API</p>
+	<p>使用它可以极大程度的简化js编程</p>
+</body>
+</html>

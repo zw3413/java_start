@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS使用方式</title>
+<!-- 2.内部样式：在head内部的style标签里写样式 -->
+<style>
+	/*CSS的注释是这样的*/
+	h2{
+		color:blue;
+	}
+</style>
+<!-- 外部样式，在独立的CSS内写样式。 -->
+<link rel="stylesheet" href="demo2.css"/>
+</head>
+<body>
+	<!-- 1.内联样式：在元素的style属性内写样式 -->
+	<h1 style="color:red;">层叠样式表</h1>
+	<h2>CSS的使用方式</h2>
+	<p>1.内联样式</p>
+	<p>2.内部样式</p>
+	<p>3.外部样式</p>
+	<h2>三种方式的区别</h2>
+	<p>1.内联样式无法复用</p>
+	<p>2.内部样式可以在当前网页复用</p>
+	<p>3.外部样式可以在所有网页复用</p>
+</body>
+</html>

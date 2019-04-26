@@ -1,0 +1,7 @@
+username = ze,password = afdkfla,nickname = klads%3Bf
+username = fanchuanqi,password = 123456,nickname = fanfan
+username = liuchangsong,password = 1236543,nickname = cangcang
+username = zhengzhihua,password = aaaaa,nickname = zhizhi
+username = zw3413,password = 1988887,nickname = zhang
+username = zw3413,password = 198887,nickname = zhangzhang
+username = zhangweicalm,password = 19888790,nickname = zhangweia

@@ -1,0 +1,108 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background:#0ea8d8;	
+	font-family:"文泉驿正黑","微软雅黑","黑体";
+
+}
+	
+div{
+	border:1px solid red;
+}
+.logo{
+	width:960px;
+	height:61px;
+	margin:0 auto;
+	background:url(../img/top_bg.png) no-repeat ;
+}
+.menu{
+	height:100px;
+	background:#0488bb;	
+}
+
+.core{
+	padding-top: 10px;
+	height:410px;
+}
+.content{
+	border:5px solid #ccc;
+	width:950px;
+	margin:0 auto;
+	background-color:#e8f3f8;
+}
+.content>div{
+	height:40px;
+	width:910px;
+	margin:0 auto;
+}
+.content>.data{
+	height:310px;
+}
+.copyright{
+	height:50px;
+	width:950px;
+	margin:0 auto;
+	text-align:center;
+}
+
+
+.logo{
+	text-align:right;
+	line-height:61px;
+}
+.logo>a{
+	padding:40px;
+	color:white;
+	text-decoration:none;
+}
+.logo>a:hover{
+	font-weight:900;
+}
+.copyright>p{
+		color:white;
+	line-height:25px;	
+}
+.core{
+	background-image:url(../img/content_bg.png);
+	background-repeat:repeat-x;
+}
+.content{
+	background-color:#e8f3f8;
+}
+
+.content table{
+	width:100%;
+	text-align:center;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+}
+.data td{
+	border:1px solid #ccc;
+}
+.content thead tr{
+	background-color:#fdebcb;
+	font-weight:900;
+	height:40px;
+}
+.content tbody tr{
+	background-color:#fff;
+	height:35px;
+}
+.content tbody tr:hover{
+	background-color:#f7f9fd;
+}
+.update{
+	padding-left:15px;
+	background:url(../img/modification.png) no-repeat left;
+	border:0;
+}
+.delete{
+	padding-left:15px;
+		background:url(../img/delete.png) no-repeat left;
+		border:0;
+}
+
+
+

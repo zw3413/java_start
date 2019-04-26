@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.ttms.product.dao.TeamDAO">
+
+<sql id="queryWhereTeam">
+	<where>
+		<if test="projectName!=null and projectName!=''">
+			and p.name like concat("%",#{projectName},"%")
+		</if>
+		<if test="projectName!=null and projectName!=''">
+			and t.valid = #{valid}
+		</if>
+	</where>
+</sql>
+
+<select id="findPageObjects" resultType="map">
+	SELECT t.*, p.name projectName
+	FROM tms_teams t
+	JOIN tms_projects p
+	ON t.projectId=p.id
+	<include refid="queryWhereTeam"/>
+	LIMIT #{startIndex},#{pageSize}
+</select>
+
+<select id="getRowCount" resultType="int">
+	SELECT COUNT(t.id)
+	FROM tms_teams t
+	<include refid="queryWhereTeam"/>
+</select>
+
+<select id="getTeamSort" resultType="map">
+	SELECT id,name
+	FROM tms_teams
+	GROUP BY id
+</select>
+ 	
+ </mapper>

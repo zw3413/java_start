@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>内置对象</title>
+<script>
+//1.String对象
+//主要的方法和JAVA一样，大家看看手册
+
+//2.Number对象
+var n=3.1415926;
+console.log(n.toFixed(3));
+
+//3.Array 对象
+//1)如何创建数组
+var a1=["zhangsan",25,false];
+console.log(a1[0]);
+var a2=new Array();
+a2.push("lisi");
+a2.push(28);
+a2.push(true);
+console.log(a2[0]);
+//结论：无论用什么方式创建出来的数组都一样，他们都是Object数组，可以存任意类型的数据
+//2）数组倒转的方法
+var arr=[5,12,8,1,6,4,7];
+arr.reverse();
+console.log(arr);
+//3)数组的排序方法:由于js中的数组都是object数组，所以默认按照字符串排序。
+arr.sort();
+console.log(arr);
+arr.sort(function(a,b){
+	return a-b;
+});
+console.log(arr);
+//4.Math对象，API和java相似，看看手册
+
+//5.Date对象
+//1)如何创建日期对象
+var d1=new Date();
+console.log(d1);
+var d2=new Date("2017/10/01 10:00:00");
+console.log(d2);
+//2)如何格式化日期
+console.log(d1.toLocaleDateString());
+console.log(d1.toLocaleTimeString());
+console.log(d1.toLocaleDateString());
+console.log(d2.toLocaleTimeString());
+
+//3)读写时间分量
+var y=d1.getFullYear();
+var m=d1.getMonth()+1;
+var d=d1.getDate();
+var h=d1.getHours();
+var mm=d1.getMinutes();
+var s=d1.getSeconds();
+console.log(y+"年"+m+"月"+d+"日"+" "+h+"时"+mm+"分"+s+"秒");
+
+//6.RegExp 对象
+//1）如何创建正则对象
+var str="you can you up,no can no bb.";
+var reg=/no/g;
+
+var b=str.match(reg);
+console.log(typeof(b));
+console.log(b[0]);
+//2) 正则对象的方法：test(),检测字符串内是否包含与正则相匹配的子串。
+console.log(reg.test(str));
+
+//3)正则对象的方法：exec(),
+//普通模式：从字符串中找出与正则相匹配的第一个字串
+console.log(reg.exec(str));
+//全局模式：第一次调用，则从字符串内找出与正则相匹配的第1个子串
+//					第n次调用，则从字符串内找出与正则相匹配的第n个子串
+console.log(reg.exec(str));
+console.log(reg.exec(str));
+console.log(reg.exec(str));
+console.log(reg.exec(str));
+console.log(reg.exec(str));
+console.log(reg.exec(str));
+
+//4) String中支持正则的方法：
+//Replace(),Match(),Search()
+//看看手册
+
+//7. Function对象
+//声明函数，也就是定义函数对象
+function sum(){
+	var s=0;
+	if(arguments.length){
+		for(i=0;i<arguments.length;i++){
+			s+=arguments[i];
+			console.log("i="+i+" "+"s="+s);
+		}
+	}
+	return s;
+}
+var s=sum(5,6,7,8,9,1,2,3,4);
+console.log("最终结果："+s);
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

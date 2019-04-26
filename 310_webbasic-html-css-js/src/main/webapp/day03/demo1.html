@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>box</title>
+<style>
+div{
+	width:100px;
+	height:100px;
+	border:1px solid red;
+}
+/*1.四个边设置相同的边距*/
+#d1{
+	padding:20px;
+	margin:40px;
+}
+/*2.四个边设置不同的边距*/
+#d2{
+	/*上 右 下 左*/
+	padding:10px 20px 30px 40px;
+	margin:10px 20px 30px 40px;	
+}
+/*3.单个边设置边距*/
+#d3{
+	padding-top: 20px;
+	margin-left: 30px;
+}
+/*4.对称设置边距*/
+#d4{
+	/*上下  左右*/
+	padding:20px 30px;
+	margin:50px 60px;
+}
+/*5.对称设置的一个特例,当左右外边距设置为auto时，元素会水平居中*/
+#d5{
+	margin:20px auto;
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="d0">d0:断肠人在天涯</div>
+
+<div id="d1">d1:故人西辞黄鹤楼</div>
+
+<div id="d2">d2:古道西风瘦马</div>
+
+<div id="d3">d3:小桥流水人家</div>
+
+<div id="d4">d4:白云千载空悠悠</div>
+
+<div id="d5">d5:夕阳西下</div>
+
+
+</body>
+</html>

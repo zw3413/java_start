@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+		
+		
+		<bean id="stu1" class="value.Student2">
+			<property name="name" value="#{t1.name}"/>
+			<property name="interest" value="#{t1.interest[1]}"/>
+		<!-- <property name="score" value="#{t1.score.english}"/> -->
+			<property name="score" value="#{t1.score['语文']}"/>
+			<!-- <property name="pageSize" value="#{config.pagesize"}"/> -->
+			<property name="pageSize" value="#{config['pagesize']}"/>
+		</bean>
+		
+		
+		
+		<!-- 读取properties文件的内容 -->
+		<!-- 
+			location:指定要读取的文件的位置。
+			注：
+				a. classpath:依据类路径去查找文件
+				b. 容器读取properties文件的内容，并将这些内容存放到Properties对象里面
+		 -->
+		<util:properties id="config" location="classpath:config.properties"/>
+		
+		<!-- 将集合类型的值配置成一个bean -->
+		<util:list id="interestBean">
+			<value>抽烟</value>		
+			<value>喝酒</value>
+			<value>烫头</value>
+		</util:list>
+		
+		<util:set id="cityBean">
+			<value>郑州</value>
+			<value>洛阳</value>
+			<value>开封</value>
+		</util:set>
+		
+		<util:map id="scoreBean">
+			<entry key="math" value="50"/>
+			<entry key="english" value="100"/>
+			<entry key="语文" value="80"/>
+		</util:map>
+		
+		<util:properties id="dbBean">
+			<prop key="username">Sally</prop>
+			<prop key="password">1234</prop>
+		</util:properties>
+		
+		
+		<bean id="t2" class="value.Teacher">
+			<property name="interest" ref="interestBean"/>
+			<property name="city" ref="cityBean"/>
+			<property name="score" ref="scoreBean"/>
+			<property name="db" ref="dbBean"/>
+		</bean>
+		
+	<!-- 
+		value：用来注入基本类型的值
+		list: 用来注入
+		set:
+		map:
+		properties:
+	 -->
+	<bean id="t1" class="value.Teacher" >
+		<property name="name" value="Sally"/>
+		<property name="age" value="20"/>
+		<property name="interest">
+			<list>
+				<value>钓鱼</value>
+				<value>唱歌</value>
+				<value>看电视</value>
+				<value>做饭</value>
+			</list>
+		</property>
+		<property name="city">
+			<set>
+				<value>杭州</value>
+				<value>上海</value>
+				<value>郑州</value>
+				<value>北京</value>
+			</set>
+		</property>
+		<property name="score">
+			<map>
+				<entry key="语文" value="90"/>
+				<entry key="english" value="60"/>
+				<entry key="math" value="80"/>
+			</map>
+		</property>
+		<property name="db">
+			<props>
+				<prop key="username">Sally</prop>
+				<prop key="password">1234</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

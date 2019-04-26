@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>事件机制（冒泡机制）</title>
+<style type="text/css">
+div, p, input {
+	border: 1px solid red;
+}
+
+div {
+	width: 300px;
+	padding: 30px;
+}
+
+p {
+	padding: 30px;
+	text-align: center;
+}
+</style>
+<script>
+	function f1(e) {
+		alert("input");
+		//取消冒泡,由事件对象取消
+		if(e.stopPropagation){
+			e.stopPropagation();
+		}else{
+			e.cancelBubble=true;
+		}
+	}
+</script>
+</head>
+<body>
+	<div onclick='alert("div");'>
+		<p onclick='alert("p");'>
+			<input type="button" value="按钮" onclick='f1(event);' />
+		</p>
+	</div>
+</body>
+</html>

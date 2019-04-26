@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js isNan</title>
+<script>
+
+
+function jc(){
+	var input=document.getElementById("num");
+	var n=input.value;
+	var span=document.getElementById("result");
+	if(isNaN(n)){
+		span.innerHTML="请输入数字";
+	}else if(n==0){
+		span.innerHTML=1;
+	}else{
+		r=jcc(n);
+		span.innerHTML=r;
+	}
+}
+function jcc(n){
+	var r=1;
+	for(var i=1;i<=n;i++){
+		r=r*i;
+	}
+	document.
+	return r;
+}
+
+
+</script>
+</head>
+<body>
+<input id="num" type="text"/>
+<input type="button" onclick="jc()" value="阶乘"/>
+<span id="result"></span>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web>
+	<!-- Content-Type mapping -->
+	<type-mappings>
+		<type-maping ext="html" type="text/html" />
+		<type-maping ext="xml" type="text/xml" />
+		<type-maping ext="png" type="image/png" />
+		<type-maping ext="jpeg" type="image/jpeg" />
+		<type-maping ext="gif" type="image/gif" />
+		<type-maping ext="icon" type="image/icon"/>
+		<type-maping ext="css" type="text/css" />
+		<type-maping ext="js" type="text/javascript" />
+	</type-mappings>
+	
+<servlet>
+<servlet-name>RegServlet</servlet-name>
+<servlet-class>com.tedu.service.RegServlet</servlet-class>
+</servlet>	
+<servlet-mapping>
+<servlet-name>RegServlet</servlet-name>
+<url-pattern>/reg</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>LogServlet</servlet-name>
+<servlet-class>com.tedu.service.LogServlet</servlet-class>
+</servlet>	
+<servlet-mapping>
+<servlet-name>LogServlet</servlet-name>
+<url-pattern>/login</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+<servlet-name>UpdateServlet</servlet-name>
+<servlet-class>com.tedu.service.UpdateServlet</servlet-class>
+</servlet>	
+<servlet-mapping>
+<servlet-name>UpdateServlet</servlet-name>
+<url-pattern>/update</url-pattern>
+</servlet-mapping>
+	
+</web>

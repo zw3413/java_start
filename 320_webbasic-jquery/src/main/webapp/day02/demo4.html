@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery事件绑定</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+
+$(function(){
+		//$(fn)和onload的区别：
+		//1.onload只能写一次，否则后者会覆盖前者
+		//   $(fn)可以写多次，都有效。
+		//2.onload是再整个网页都加载完成后自动触发，
+		//   $(fn)是在网页中的标签加载完成后自动触发
+		$(':button:first').bind('click',f1);
+			
+		$(":button:last").click(function(e){
+			alert('按钮2');
+			console.log(e);
+		});
+});
+		
+		function f1(){
+			alert("按钮1");
+		}
+
+
+</script>
+</head>
+<body>
+<p>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+
+
+</p>
+</body>
+</html>

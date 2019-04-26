@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.ttms.product.dao.ProjectDao">
+
+<!-- 动态SQL -->
+<sql id="where">
+<where>
+			<if test="name!=null and name!=''">
+				and name like concat("%",#{name},"%")
+			</if>
+			<if test="valid!=null">
+				and valid=#{valid}
+			</if>
+		</where>
+</sql>
+
+
+<insert id="insertObject" parameterType="cn.tedu.ttms.product.entity.Project">
+	INSERT INTO tms_projects 
+	(name,code,beginDate,endDate,valid,note,createdTime,modifiedTime,createdUser,modifiedUser)
+	VALUES
+	(#{name},#{code},#{beginDate},#{endDate},#{valid},#{note},now(),now(),#{createdUser},#{modifiedUser})
+</insert>
+
+<!-- 
+Dao接口到Mapper文件的参数映射方式：
+1.在Dao接口定义方法中，使用@Param paramname 注解每一个参数
+2.在mapper文件中，使用#{param1},...等形式来获取Dao接口方法的参数信息
+3.在mapper文件中，使用#{0},#{1},...等形式来获取Dao接口方法的参数信息
+
+ -->
+
+	<!-- 查询表中所有数据 -->
+	<select id="findObjects" resultType="cn.tedu.ttms.product.entity.Project">
+		SELECT * 
+		FROM tms_projects
+		ORDER BY cretedTime DESC
+		
+	</select>
+	
+	<!-- 
+	1)resultType后面的值是否可以是一个动态字段
+	2）#可否用$替换
+	3）排序时的cteatedTime是否可以是一个动态字段
+	 -->
+	<select id="findPageObjects" resultType="cn.tedu.ttms.product.entity.Project">
+		SELECT * 
+		FROM tms_projects
+		
+		<include refid="where"/>
+		ORDER BY ${orderBy} DESC
+		limit #{startIndex},#{pageSize}
+	</select>
+	<!-- resultType后的int是否可以修改为integer,这个integer是否可以大写 -->
+	<select id="getRowCount" resultType="int">
+		SELECT count(*) 
+		FROM tms_projects
+		<include refid="where"/>
+	</select>
+
+	<select id="findObjectById" resultType="cn.tedu.ttms.product.entity.Project">
+		SELECT * 
+		FROM tms_projects
+		WHERE id=#{id}
+	</select>
+ 	
+ 	<update id="updateObject">
+		UPDATE tms_projects
+		SET name=#{name},code=#{code},beginDate=#{beginDate},endDate=#{endDate},note=#{note},valid=#{valid}
+		WHERE id=#{id} 	
+ 	</update>
+ 	
+ 	<update id="validById" >
+ 		UPDATE tms_projects
+ 		SET valid=#{valid}
+ 		WHERE id in 
+		<foreach collection="ids" open="(" close=")" separator="," item="item">
+		#{item}
+		</foreach>
+ 	</update>
+ 	
+ </mapper>

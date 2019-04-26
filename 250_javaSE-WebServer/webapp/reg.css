@@ -1,0 +1,38 @@
+.td_item{
+	
+	width: 15% ;
+	text-align:center;
+	
+}
+.td_info{
+	width:45%;
+}
+
+
+.southcity{
+	color:red;
+	
+}
+a:link{
+	color:yellow;
+}
+
+a:visited{
+	color:pink;
+	
+}
+.btimg{
+	width:150;
+	height:150;
+}
+
+.btimg:hover{
+	width:200;
+	height:200;
+}
+.ok{
+	color:green;
+}
+.error{
+	color:red;
+}

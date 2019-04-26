@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM的读写操作</title>
+<style>
+#d1{
+	border:5px solid black;
+}
+</style>
+<script>
+	//onload是页面加载事件，在页面加载完成时，
+	//由浏览器自动触发。
+	window.onload=new function(){
+	//1.读取p的节点名称，和节点类型
+		var p1=document.getElementById("p1");
+		
+		console.log("p1.nodeName:			"+p1.nodeName);
+		console.log("p1.nodeType:			"+p1.nodeType);
+		console.log("document.nodeName:		"+document.nodeName);
+		console.log("document.nodeType:		"+document.nodeType);
+	//2.读写节点的内容, 双标签中间的文本时内容，如<a>内容</a>
+	//innerHTML(带标签)
+		var p2=document.getElementById("p2");
+		console.log("p2.innerHTML:			"+p2.innerHTML);
+		p2.innerHTML="2.DOM操作包含<u>查询</u>节点";
+	//innerTEXT(忽略标签)
+		var p3=document.getElementById("p3");
+		console.log("p3.innerText:			"+p3.innerText);	
+		p3.innerText="3.DOM操作包含<u>增删</u>节点";
+	//3.读写节点的值
+	//表单控件（label除外）内部的文字就是值。
+	var input=document.getElementById("btn");
+	console.log(input.value);
+	input.value="bbbbb";
+	//4.读写节点的属性
+	//1)通过get/set方法(可以读写任何属性)
+	var img=document.getElementById("i1");
+	console.log(img.getAttribute("src"));
+	img.setAttribute("src","../images/02.jpg");
+	img.removeAttribute("src");
+	var d1=document.getElementById("d1");
+	console.log(d1.style.width);
+	var ws=d1.style.width;
+	var wn=parseNumber(ws.substring(0,ws.length-2));	
+	wn+=1;
+		console.log(wn);
+	d1.style.width=wn+"px";
+	//var num=
+	//2)通过属性名
+	//id,classname,style
+	var a=document.getElementById("a1");
+	a.style.color="blue";
+	console.log(a.style);
+	
+	
+	}
+</script>
+</head>
+<body>
+	<p id="p1">1.DOM操作包含<b>读写</b>节点</p>
+	<p id="p2">2.DOM操作包含<b>查询</b>节点</p>
+	<p id="p3">3.DOM操作包含<b>增删</b>节点</p>
+	<p>
+	<input id="btn" type="button" value="aaaaa" onclick="click()"/>
+	</p>
+	<p>
+	<img src="../images/01.jpg" id="i1"/>
+	</p>
+	<p>
+		<a href="#" style="color:red;" id="a1">退出</a>
+	</p>
+	<div id="d1" style="width:50px" ></div>
+</body>
+</html>

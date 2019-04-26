@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery合成事件</title>
+<style>
+.big{
+width:300px;
+height:300px;
+}
+</style>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+	$(function(){
+		//给图片绑定悬停事件
+		$('img').hover(function(){
+			//$(this).attr('class','big');
+			//$(this).css('class','big');
+			//$(this).width(250);
+			$(this).addClass('big');
+			//$(this).toggleClass('big');
+		},small);
+		
+		//启动定时器，让图片在显示于隐藏之间切换
+		setInterval(function(){
+			$("img").toggle();
+		},1000);
+		
+		
+		
+	});
+	
+	
+	
+	function small(img){
+		$(img.target).removeClass('big');
+
+	}
+</script>
+
+</head>
+<body>
+	<p>
+		<img src="../images/01.jpg" /> 
+		<img src="../images/02.jpg" /> 
+		<img src="../images/03.jpg" />
+	</p>
+</body>
+</html>

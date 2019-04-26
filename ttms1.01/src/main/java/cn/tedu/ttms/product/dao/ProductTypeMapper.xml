@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.ttms.product.dao.ProductTypeDAO">
+
+<select id="findTreeGridNodes" resultType="map">
+<!-- 方法1  -->
+	SELECT t1.*,t2.name parentName
+	FROM tms_classes t1
+	LEFT JOIN tms_classes t2 ON t1.parentId=t2.id
+	
+	<!-- 方法2 -->
+<!-- 	SELECT t1.*,(SELECT p.name 
+						 FROM tms_classes p
+						 WHERE c.parentId=p.id)
+	FROM tms_classes c
+ -->
+</select>
+ 	
+ </mapper>

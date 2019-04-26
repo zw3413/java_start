@@ -1,0 +1,28 @@
+div{
+	width:700px;
+	height:500px;
+	background-color:#000;
+	margin:30px auto;
+	position:relative;
+}
+#img1{
+	position:absolute;
+	bottom:20px;
+	right:150px;
+	z-index:3;
+}
+#img2{
+	position:absolute;
+	left:80px;
+	top:0;
+
+}
+#img3{
+	position:absolute;
+	top:200px;
+	left:40px;
+	
+}
+img:hover{
+	z-index:999;
+}

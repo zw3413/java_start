@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOM 对象</title>
+
+<script>
+function f1(){
+	var b=confirm("您确定要离开本页面吗？")
+	if(b){
+	location.href="http://www.tmooc.cn";
+	}
+}
+function reload(){
+	location.reload();
+}
+function forward(){
+	history.forward();
+}
+//在页面加载时，输出screen即navigator的内容
+console.log(screen.width+"*"+screen.height+":");
+console.log(screen.availWidth+"*"+screen.availHeight);
+console.log(navigator.userAgent)
+
+</script>
+
+</head>
+<body>
+<input type="button" value="TMOOC" onclick="f1()"/>
+<input type="button" value="刷新"  onclick="reload()"/>
+<input type="button" value="前进" onclick="forward()"/>
+<input type="button" value="后退" onclick="history.back()"/>
+</body>
+</html>

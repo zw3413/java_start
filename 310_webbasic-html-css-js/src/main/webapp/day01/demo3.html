@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>演示各种标签</title>
+</head>
+<body>
+<!-- 1.标题 -->
+	<h1>一级标题：<a href="#anchor1">仓老师</a></h1>
+	<h2>二级标题：<a href="#anchor2">范传奇</a></h2>
+	<h3>三集标题：王克晶</h3>
+	<h4>四级标题</h4>
+	<h5>五级标题</h5>
+	<h6>六级标题</h6>
+<!-- 2.段落 -->
+<p><b>独自莫凭栏</b></p>
+<p><i>春意阑珊</i></p>
+<p><u>左牵黄，右擎仓</u></p>
+<p><s>梦里不知身是客</s></p>
+<p>文本<sup>上标</sub></p>
+<p>文本<sub>下标</sub></p>
+<!-- 3.列表 -->
+<!-- 有序列表 -->
+<ol>
+	<li>浙江省</li>
+	<li>福建省</li>
+	<li>江西省</li>
+</ol>
+<!-- 无序列表 -->
+<ul>
+	<li>丽水市</li>
+	<li>桐庐市</li>
+	<li>许昌市</li>
+</ul>
+<!-- 嵌套列表 -->
+<ol>
+	<li>
+		河北省
+		<ul>
+			<li>石家庄</li>
+			<li>沧州市</li>
+			<li>保定</li>
+		</ul>
+	</li>
+	<li>
+		山东省
+		<ul>
+			<li>淄博</li>
+			<li>青岛</li>
+			<li>济南</li>
+		</ul>
+	</li>
+</ol>
+<!-- 能够独立换行的元素都是 块元素 -->
+<!-- 5.行内元素 -->
+	<p>
+		北京市<i	>海淀</i>区<strong>北三环</strong>西路甲<em>18号</em><span style="color:red">中鼎大厦</span>B座8层
+	</p>
+	<!-- 6.空格折叠 -->
+	<p>
+	<!--空格折叠原则 -->
+		那是一个&nbsp;&nbsp;&nbsp;秋天，<br/>
+		看着传奇&nbsp;&nbsp;&nbsp;跑偏。<br/>
+		奔着克晶&nbsp;&nbsp;&nbsp;而去，<br/>
+		误入老苍&nbsp;&nbsp;&nbsp;心间。<br/>
+	</p>
+	<!-- 7.图片 -->
+	<!-- 1)绝对路径：
+	 从盘夫开始写出图片存放的完整路径，
+	 如：D/DAY01/1.jpg
+	 如：/home/soft01/1.jpg
+	 这种方式将路径写死了，一旦软件上线时，用户要求改路径甚至操作系统，就都错了。-->
+	<!-- 2)相对路径：
+	写出图片和网页的相对位置，软件上线时，是将整个项目拷贝给用户，他们的相对位置不变， -->
+	
+		<!-- 图片和网页平级 -->
+		<img alt="" src="01.jpg"/>
+	
+		<!-- 图片在网页的下级 -->
+		<img alt="" src="i/02.jpg"/>
+
+		<!-- 图片在网页的上级 -->
+		<img alt=" " src="../03.jpg"/>
+	
+		<!-- 通常是这样： 图片在平级别的文件夹下-->
+		<img alt="" src="../images/04.jpg"/>
+		<img alt="" src="../images/05.jpg"/>
+		<img alt="" src="../images/06.jpg"/>
+	</p>
+	<p>
+	<!-- 8.超链接 -->
+	<!-- 1)基本用法 -->
+	<a href="http://www.tmooc.cn" target="_self">TMOOC</a>
+	<a href="http://doc.tedu.cn" target="_blank">文档</a>
+	<a href="http://code.tarena.com.cn" target="_blank">代码</a><br/>
+	<!-- 2)链接到锚点 -->
+	<a name="anchor1">苍老师真是一个好老师，不但会讲课，还会拍片子。</a><br/>
+	<a name="anchor2">范老师也是一个好老师，不但会讲课，还会拍片子。</a><br/>
+	<!-- 3)特例：网页的顶部默认就是锚点，无名。 -->
+	<a href="#">回到顶部</a>
+	</p>
+	<!--9.表格 -->
+	<!-- 1）基本的用法 -->
+	<table border="1" cellspacing="0" width="200px" height="50px" >
+		<tr >
+		<td>李清照</td><td>释迦摩尼</td>
+		</tr>
+		<tr>
+		<td>李红鹤</td><td>王力宏</td>
+		</tr>
+	</table>
+	<!-- 2）跨列 -->
+	<table border="1" cellspacing="0" width="200px" height="50px" >
+		<tr >
+		<td colspan="2">李清照</td><!-- <td>释迦摩尼</td> -->
+		</tr>
+		<tr>
+		<td>李红鹤</td><td>王力宏</td>
+		</tr>
+	</table>
+	<!-- 3）跨行 -->
+	<table border="1" cellspacing="0" width="50%" height="50px" >
+		<tr >
+		<td rowspan="2">李清照</td><td>释迦摩尼</td>
+		</tr>
+		<tr>
+		<!-- <td>李红鹤</td> --><td>王力宏</td>
+		</tr>
+	</table>
+	<!-- 4)行分组 -->
+	<table border="1" cellspacing="0" width="30%">
+		<thead>
+			<tr>
+				<td>编号</td>
+				<td>名称</td>
+				<td>金额</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td><td>鼠标</td><td>50</td>
+			</tr>
+			<tr>
+				<td>2</td><td>键盘</td><td>100</td>
+			</tr>
+			<tr>
+				<td>3</td><td>显示器</td><td>1000</td>
+			</tr>
+		</tbody>	
+		<tfoot>
+			<tr>
+			<td colspan="2">合计</td><td>1150</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

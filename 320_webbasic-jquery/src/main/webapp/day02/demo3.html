@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>样式操作</title>
+<style>
+.big{
+	font-size:30px;
+}
+.important{
+	color:red;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script>
+$(function(){
+	
+	$("input[value='加大']")[0].onclick=function(){
+		$('p').toggleClass('big');	
+	}
+	$("input[value='变红']")[0].onclick=function(){
+		$('p').toggleClass('important');	
+	}
+});
+
+
+</script>
+</head>
+<body>
+	<p>jQuery对样式操作提供了很好的支持</p>
+	<input type="button" value="加大" "/>
+	<input type="button" value="变红"  "/>
+</body>
+</html>

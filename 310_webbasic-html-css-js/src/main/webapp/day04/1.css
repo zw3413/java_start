@@ -1,0 +1,58 @@
+body{
+	background:black;
+	font-family:"文泉驿正黑";
+}
+div{
+}
+.body li{
+	border:1px solid black;
+	margin:10px;
+	padding:10px;
+	float:left;
+	text-align:center;
+	background:white;
+}
+.body ul{
+	width:780px;
+	margin:20px auto;
+	padding-left:0;
+	list-style-type:none;
+}
+.body>div{
+	clear:left;
+	margin-bottom:30px;
+}
+.copyright{
+	color:white;
+	text-align:center;
+}
+.head{
+	width:800px;
+	height:100px;
+	margin:10px auto;
+	color:white;
+	text-align:center;
+	line-height:100px;
+	
+}
+.head>h1{
+	margin:0;
+	font-weight:900;
+}
+hr{
+	width:800px;
+}
+li:hover{
+	position:relative;
+	left:3px;
+	top:-3px;
+}
+img:hover{
+	position:relative;
+	bottom:-3px;
+}
+li>p:hover{
+	position:relative;
+	bottom:-3px;
+	font-weight:900;
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>电子表</title>
+<style>
+#time{
+	font-size:30px;
+	text-align:center;
+	line-height:20px;
+	margin:10px 4px 5px 4px;	
+	padding:2px;
+}
+.time{
+border:5px solid;
+}
+div>.time1{
+	border:5px solid #0f0;
+}
+div>.time2{
+	border:5px solid #f00;
+}
+div>.time3{
+	border:5px solid #00f;
+}
+.frame{
+	border:5px solid #999; 
+	height:90px;
+	width:130px;
+	margin:10px 10px;
+	padding:0px;
+	float:left;
+}
+input{
+	margin:10px 6px;
+	padding:0 0;
+	width:50px;
+}
+#a{
+	border:10px solid black;
+	margin:0;
+	padding:0;
+	height:0;
+	width:200px;
+}
+#status{
+margin:10px 4px 5px 4px;
+border:5px solid #ccc;
+padding:2px;
+height:	20px;
+width:108px;
+}
+
+</style>
+<script>
+
+function a(){
+	var i=0;
+	setInterval(function(){return i++;},50);
+}
+
+var idTime;
+function start(){
+	var i=1;
+	//若idTime非空，说明定时器已经启动，不要再次启动；
+	if(idTime){
+		return;
+		}
+	
+	
+	idTime=setInterval(function(){
+		var timeObj=document.getElementById("time");
+
+		var date=new Date();
+		var timeStr=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+		timeObj.innerHTML=timeStr;
+		switch(i){
+		case 1:i=2;break;
+		case 2:i=3;break;
+		case 3:i=1;break;
+		}
+		var timei="time"+i;
+		timeObj.className=timei;
+	},500);	
+	var timeObj=document.getElementById("time");
+	timeObj.disabled=true;
+}
+function stop(){
+	clearInterval(idTime);
+	idTime=null;
+}
+var idSend=null;
+function send(){
+	if(idSend){
+		return;
+	}
+	var statusObj=document.getElementById("status");
+	statusObj.innerHTML="正在发送...";
+	idSend=setTimeout(function(){
+		statusObj.innerHTML="已发送。";
+		idSend=null;
+	},3000);
+}
+function cancel(){
+	var statusObj=document.getElementById("status");
+	if(!idSend){
+		statusObj.innerHTML="还未发送！";
+		return;
+	}
+	statusObj.innerHTML="已撤回。";
+	clearTimeout(idSend);
+	idSend=null;
+}
+
+</script>
+
+</head>
+<body>
+<hr/>
+<div>
+<div id="d1" class="frame">
+<p  id="time" class="time">00:00:00</p>
+<input type="button" value="开始" onclick="start()"/>
+<input type="button" value="停止" onclick="stop()"/>
+</div>
+<div id="d2" class="frame">
+<p  id="status" class="status"></p>
+<input type="button" value="发送" onclick="send()"/>
+<input type="button" value="撤回" onclick="cancel()"/>
+</div>
+<div style="clear:both;">
+
+</div>
+</div>
+<hr/>
+<div id="a" class="a">
+</div>
+
+</body>
+</html>

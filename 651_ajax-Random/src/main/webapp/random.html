@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+
+function getXhr(){
+	var xhr=null;
+	if(window.XMLHttpRequest){
+		xhr=new XMLHttpRequest;
+	}else{
+		xhr=new ActiveXObject('Microsoft.XMLHttp');
+	}
+	return xhr;
+}
+
+function showNumber(){
+	console.log("showNumber");
+	var xhr=getXhr();
+	console.log("xhr:"+xhr);
+	xhr.open("get","show.do",true);
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4&&xhr.status==200){
+			var r=xhr.responseText;
+			$("s1").innerHTML=r;
+		}
+}
+	xhr.send(null);
+}
+function $F(id){
+	var v=document.getElementById(id);
+	return v.value;
+}
+function $(id){
+	return document.getElementById(id);
+}
+
+
+</script>
+
+</head>
+<body style="font-size:30px;">
+<a href="javascript:showNumber();">点这儿显示一个随机数</a><br/>
+<span id="s1"></span>
+
+</body>
+</html>

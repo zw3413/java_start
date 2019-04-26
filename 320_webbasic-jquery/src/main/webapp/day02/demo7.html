@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 动画</title>
+<style>
+#d11{
+width:200px;
+height:290px;
+}
+#d1{
+width:200px;
+height:200px;
+background-color:red;
+}
+#d2{
+text-align:center;
+border:1px solid red;
+margin:20px auto;
+display:none;
+font-size:50px;
+}
+
+#d3{
+	position:relative;
+	margin:100px auto;
+	width:318px;
+	height:318px;
+}
+#d4{
+
+	position:fixed;
+	width:300px;
+	height:400px;
+	background-color:red;
+	top:100px;
+	right:-270px;
+}
+
+</style>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+$(function(){
+	$('input[value="隐藏"]').click(function(){
+		
+	//	$('#d1').fadeOut(1000);
+	//	$('#d1').slideDown(1000);
+	//动画底层是由定时器不断修改样式实现的。
+	//而定时器相当于支线程，当前方法相当于主线程。
+	//二者是兵法执行的，所以主线程在启动定时器后，
+	//不会等待，而是立刻书除了over，定时器却在2秒后才完成。
+		$('#d1').hide(2000,
+		//此处的函数在动画执行完之后才会执行，在某人物完成后自动调用的函数称之为回调函数。		
+				function(){
+			console.log('animate over'+new Date().toLocaleTimeString());
+		});
+	console.log("code over "+new Date().toLocaleTimeString());
+	});
+	$('input[value="显示"]').click(function(){
+		$('#d1').show(1000);
+		$('#d1').slideUp(1000);
+		$('#d1').fadeIn(1000);
+	});
+	
+	$('input[value="删除"]').click(function(){
+				$('#d2').fadeIn(2000,function(){
+			setTimeout(function(){
+				$('#d2').fadeOut(2000);
+			},1000)
+		});
+	});
+});
+
+//给div3绑定悬停事件
+$(function(){
+	$('#d3').hover(function(){
+		console.log(1);
+		$('#d3').animate({"right":"-20px"},300);
+	},function(){
+		$('#d3').animate({"right":"0px"},300);
+	});
+});
+
+$(function(){
+	$("#d4").hover(function(){
+		$('#d4').animate({'right':'0px'},1000);
+	},function(){
+		$('#d4').animate({'right':'-270px'},1000);		
+	});
+})
+</script>
+</head>
+<body>
+<p>
+<input type="button" value="隐藏"/>
+<input type="button" value="显示"/>
+<input type="button" value="删除"/>
+</p>
+<div id="d11">
+<div id="d1">
+</div>
+<div id="d2">
+<strong>删除成功!</strong>
+</div></div>
+<div id="d3">
+<img src="../images/3.jpg"/>
+</div>
+<div id="d4">
+
+</div>
+</body>
+</html>

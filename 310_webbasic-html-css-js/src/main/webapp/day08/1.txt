@@ -1,0 +1,35 @@
+c3p0 DataSources are both Referenceable and Serializable, 
+and are thus suitable for binding to a wide-variety of JNDI-based naming services.
+c3p0 DataSources 是既 可参考 而且 串行化
+Statement and ResultSets are carefully cleaned up 
+when pooled Connections and Statements are checked in, 
+to prevent resource- exhaustion when clients use the lazy 
+but common resource-management strategy of only cleaning up their Connections....
+Statement 和 ResultSets都被精心的清理，当调用了pool里的连接和Statement开始的时候。
+这样来防止内存溢出，当客户端使用了比较懒但是通用的资源管理策略:仅仅清理他们的连接。
+
+
+The library adopts the approach defined by the JDBC 2 and 3 specification 
+(even where these conflict with the library author's preferences). 
+这个库适用于 JDBC2和3规定的路径
+甚至是一些地方，与作者的意图有所违背的。
+
+
+DataSources are written in the JavaBean style, offering all the required 
+and most of the optional properties (as well as some non-standard ones), 
+and no-arg constructors. All JDBC-defined internal interfaces are implemented 
+(ConnectionPoolDataSource, PooledConnection, ConnectionEvent-generating Connections, etc.) 
+c3p0 DataSources 是按照javaBean的风格写的，提供了所有需要的和大部分的属性（也包含非标准的属性）
+以及，没有参数的构造函数。所有的JDBC定义的内部接口都有实现: ConnectionPoolDataSource, PooledConnection, ConnectionEvent-generating Connections, etc.
+
+
+You can mix c3p0 classes with compliant third-party implementations 
+(although not all c3p0 features will work with external implementations).
+可以将c3p0类与适配的第三方实现一同使用（尽管不是所有的c3p0特性可以和外部实现合作。）
+
+c3p0 now fully supports the JDBC4 specification.
+c3p0 现在完全支持JDBC4 specification
+c3p0 hopes to provide DataSource implementations more than suitable 
+for use by high-volume "J2EE enterprise applications". Please provide feedback, bug-fixes, etc.!
+c3p0希望提供 DataSource实现能够非常的适用于高要求的 J2EE企业应用。
+请提供反馈，以及bug fix。

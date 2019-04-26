@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+  <servlet>
+    <servlet-name>someservlet</servlet-name>
+    <servlet-class>web.SomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>someservlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>life</servlet-name>
+    <servlet-class>web.LifeServlet</servlet-class>
+    <init-param>
+      <param-name>company</param-name>
+      <param-value>达内科技</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>life</servlet-name>
+    <url-pattern>/life</url-pattern>
+  </servlet-mapping>
+</web-app>

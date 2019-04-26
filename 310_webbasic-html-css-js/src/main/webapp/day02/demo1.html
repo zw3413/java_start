@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单</title>
+</head>
+<body>
+<!-- 1.表单元素：
+	用来声明表单的范围，只有在此范围内的数据，才能提交给服务器。
+	action:声明表单提交的目标。
+	method,encrypt:将来再讲 -->
+	<form action="http://tmooc.cn">
+		<!-- 2.表单控件：用来输入数据， -->
+		<!--1)input元素：它们的type属性不同  9个-->
+
+		<!-- 1>>文本框 
+			value:设置默认值
+			maxlength:最大长度，
+			readonly:设置只读-->
+		<p>
+			帐号：<input type="text" value="请输入帐号" maxlength="10" />
+		</p>
+
+		<!-- 2>>密码框:属性同上 -->
+		<p>
+			密码：<input type="password"/>
+		</p>
+
+		<!-- 3>>单选框 
+			name:组名，同名的radio就是一组，会互斥。
+			checked:设置默认选中，
+			value:将来再讲-->
+		<p>
+			性别：
+			<input type="radio" name="sex" checked/> <label>男</label>
+			<input type="radio" name="sex" checked/> 女
+		</p>
+
+		<!-- 4>>多选框 
+			checked:设置默认选中，
+			name,value:将来再讲-->
+		<p>
+		兴趣：
+			<label><input type="checkbox" checked/> 社交</label>
+			<label><input type="checkbox"/> 读书</label>		
+			<label><input type="checkbox" id="c1"/> 养生</label>
+			<label><input type="checkbox"/> 竞技</label>
+			<label><input type="checkbox"/> 美食</label>
+		</p>
+		<p>
+			提交：<input type="submit"/>
+		</p>
+		
+		<!-- 5>>隐藏框 -->
+		<p>
+			<input type="hidden" value="hi!"/>
+		</p>
+
+		<!-- 6>>文件框 -->
+		<p>
+			头像：<input type="file"/>
+		</p>
+
+		<!-- 7,8,9>>按钮 -->
+		<input type="submit" value="注册"/>
+		<input type="reset" value="重置"/>
+		<input type="button" value="测试"/>
+
+		
+		<!-- 2)其他元素：它们的标签名不同 3个-->
+		<!-- label:用来管理表单中的文字，可以将文字与控件绑定为一个整体，从而增加空间的范围 
+			id:是元素的唯一标识，任何元素都有ID-->
+		<p>
+		<input type="checkbox" name="" id="c2"/>
+		<label for="c2" >我已阅读并自愿遵守此协议</label>
+		</p>
+
+		<!-- 下拉框：
+			selected:设置默认选中
+			value:将来再讲-->
+		<p>
+		城市：
+		<select >
+			<option>--请选择--</option>
+			<option>稻城</option>
+			<option>亚丁</option>
+			<option>绥芬河</option>
+			<option>牡丹江</option>
+			<option>平泉</option>
+			<option>维多利亚</option>
+			<option selected>香格里拉</option>
+			<option>睡城</option>
+		</select>
+		</p>
+		
+		<!-- 文本框 -->
+		<p>
+			简介：
+			<textarea rows="8" cols="50">Hello,How are you?</textarea>
+		</p>
+	</form>
+</body>
+</html>

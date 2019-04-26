@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery选择器</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+//window.onload=function(){};
+//等价于 onload();
+$(function(){
+	//1.基本选择器
+	//2.层次选择器
+	console.log($("#gz+"));
+	//3.过滤选择器
+	//1）基本过滤选择器
+	console.log($('li:eq(0)'));
+	console.log($('li:last'));
+	console.log($('li:odd'));
+	console.log($('li:lt(2)'));
+	console.log($('li:not(#gz)'));
+	//2）内容过滤选择器
+	console.log($('li:contains("州")'));
+	//3）可见性过滤选择器
+	console.log($('li:hidden'));
+	console.log($('li:visible'));
+	//4）属性过滤选择器
+	console.log($('li[id]'));
+	console.log($('li[style]'));
+	//5）状态过滤选择器
+	console.log($('input:disabled'));
+	console.log($('input:checked'));
+	//4.表单选择器
+	console.log($('input'));
+	console.log($('input:radio'));
+	console.log($(':radio'));
+	console.log("--------------")
+	console.log($('.txt').val());
+
+});
+
+</script>
+</head>
+<body>
+
+	<input id="txtContent" class="txt" type="text" value="张三"/>
+	<input id="txtContent1" class="txt" type="text" value="张四"/>
+<ul>
+<li>北京</li>
+<li>上海</li>
+<li id="gz">广州</li>
+<li>深圳</li>
+<li>杭州</li>
+<li>苏州</li>
+<li style="display:none">东京</li>
+</ul>
+<!-- readonly:只读，框中若有数据，依然可以提交给服务器
+		disabled:禁用，框中若有数据，无法提交给服务器
+ -->
+<p>
+帐号：<input type="text" disabled/>
+</p>
+<p>
+密码：<input type="text" readonly/>
+</p>
+<p>
+性别：<label><input type="radio" name="gender" checked/>男</label><label><input type="radio" name="gender"/>女</label>
+</p>
+</body>
+</html>

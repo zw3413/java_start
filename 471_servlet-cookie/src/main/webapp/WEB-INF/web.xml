@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>471_servlet-cookie</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AddCookieServlet</display-name>
+    <servlet-name>AddCookieServlet</servlet-name>
+    <servlet-class>web.AddCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCookieServlet</servlet-name>
+    <url-pattern>/addcookie</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindCookieServlet</display-name>
+    <servlet-name>FindCookieServlet</servlet-name>
+    <servlet-class>web.FindCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindCookieServlet</servlet-name>
+    <url-pattern>/findcookie</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Find_addCookieServlet</display-name>
+    <servlet-name>Find_addCookieServlet</servlet-name>
+    <servlet-class>web.Find_addCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Find_addCookieServlet</servlet-name>
+    <url-pattern>/find_addcookie</url-pattern>
+  </servlet-mapping>
+</web-app>

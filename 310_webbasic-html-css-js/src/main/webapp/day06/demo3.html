@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>计算器</title>
+<script>
+
+function calc(){
+	//获取文本框
+	var ssObj=document.getElementById("ss");
+	//获取文本框的值
+	var ss=ssObj.value;
+	try{
+	//执行计算
+	ssObj.value=eval(ss);
+	}catch(ex){
+		ssObj.value="error";
+	}
+}
+
+</script>
+</head>
+<body>
+	<input type="text" id="ss"/>
+	<input type="button" value="=" onclick="calc()"/>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>开发一个网页，包含几个图片，点击任意图片，将其变小，再次点击，将其变回原来大小</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+	var div;
+	$(function() {
+		div = $('#imgs:first')[0];
+		div.onclick = function(e) {
+			var obj=e.target||e.srcElement;
+			console.log(obj);
+			
+			if($(obj).width()==218){
+				$(obj).width(150).height(150);
+			}else if($(obj).width()==150){
+				$(obj).width(218).height(218);				
+			}
+			
+		}
+	})
+</script>
+</head>
+<body>
+	<div id="imgs">
+
+		<img src="../images/01.jpg" /> <img src="../images/02.jpg" /> <img
+			src="../images/03.jpg" />
+
+	</div>
+</body>
+</html>

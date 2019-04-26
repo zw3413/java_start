@@ -1,0 +1,234 @@
+/*0.先对页面做一些统一的声明*/
+/* '*'通用选择器，可以选择一切元素*/
+*{
+	padding:0;
+	margin:0;
+}
+/*1.给页面布局，即设置每个区域的位置和大小*/
+div{
+	border:1px solid red;
+	margin:0 auto;
+}
+.logo{
+	width:	960px;
+	height:61px;
+}
+.menu{
+	height:100px;	
+}
+.core{
+	/*顶部预留10px的空间，将来摆放渐变条*/
+	padding-top:10px;
+	height:410px;
+}
+.content{
+	width:950px;
+	height:390px;
+	border:5px solid #8ac1db;
+}
+
+.content>div{
+	width:910px;
+	height:40px;
+}
+.content>.data{
+	height:310px;
+}
+
+.copyright{
+	width:	960px;
+	height:50px;
+}
+/*2.设置背景*/
+body{
+	background-color:#0ea8d8;
+}
+.logo{
+		background:url(../img/top_bg.png);
+}
+.menu{
+	background:#0488bb;	
+}
+.core{
+	background-image:url(../img/content_bg.png);
+	background-repeat:repeat-x;
+	background-position: top;
+}
+.content{
+	background-color:#e8f3f8;	
+}
+/*3.设置logo区和版权区，文字的样式。*/
+body{
+	font-family:"文泉驿正黑","微软雅黑","黑体";
+	font-size:14px;
+}	
+.logo{
+	text-align:right;
+	line-height:61px;
+}
+.logo>a{
+	margin-right:40px;
+	text-decoration:none;
+	color:#fff;
+}
+.logo>a:hover{
+	font-weight:900;
+}
+.copyright>p{
+	text-align:center;
+	color:#fff;
+	line-height:25px;
+}
+/*4.设置数据区表格的样式*/
+.data>table{
+	border:1px solid #ccc;
+	/*边框合并，必须写在table上*/
+	border-collapse:collapse;
+	width:100%;
+}
+.data td{
+	text-align:center;
+	border:1px solid  #ccc;
+}
+.data thead tr{
+	height:40px;
+	background:#fdebcb;
+	font-weight:900;
+}
+.data tbody tr{
+	height:32px;
+	background:#fff;
+}
+.data tbody tr:hover{
+	background:#f7f9fd;
+}
+
+.update{
+	padding-left:15px;
+	background:url(../img/modification.png) no-repeat left;
+	border:0;
+	cursor:pointer;
+}
+.delete{
+	margin-left:10px;
+	padding-left:13px;
+	background:url(../img/delete.png) no-repeat left;
+	border:0;
+	cursor:pointer;
+}
+.button{
+	text-align:right;
+	line-height:40px;
+}
+.button>input{
+	margin-right:40px;
+	padding:5px 10px 5px 10px;
+}
+
+/*5.解决logo图片和消息框的摆放问题*/
+.logo>img{
+	float:left;
+}
+/*给父元素添加相对定位的原因是，方便子元素定位*/
+.content{
+	position:relative;
+}
+.content>.msg{
+	width:500px;
+	height:80px;
+	position:absolute;
+	top:100px;
+	left:250px;
+	background:#FDECEC url(../img/ok.png) no-repeat 10px 32.5px;
+	border:1px solid #F68A8A;
+}
+.msg>img{
+	float:right;
+	margin:5px;
+	cursor:pointer;
+}
+.msg>p{
+	line-height:80px;
+	margin-left:38px;
+}
+/* */
+.menu>ul{
+	width:960px;
+	height:91px;
+	margin:0 auto;
+}
+.menu li{
+	width:68px;
+	height:77px;
+	margin:7px 14px;
+	float:left;
+	list-style-type:none;
+}
+#index{
+	background:url(../img/index_out.png);
+}
+#index:hover{
+	background:url(../img/index_on.png);
+}
+#role{
+	background:url(../img/role_out.png);
+}
+#role:hover{
+	background:url(../img/role_on.png);
+}
+#admin{
+	background:url(../img/admin_out.png);
+}
+#admin:hover{
+	background:url(../img/admin_on.png);
+}
+#fee{
+	background:url(../img/fee_out.png);
+}
+
+#fee:hover{
+	background:url(../img/fee_on.png);
+}
+#account{
+	background:url(../img/account_out.png);
+}
+
+#account:hover{
+	background:url(../img/account_on.png);
+}
+#service{
+	background:url(../img/service_out.png);
+}
+
+#service:hover{
+	background:url(../img/service_on.png);
+}
+#bill{
+	background:url(../img/bill_out.png);
+}
+#bill:hover{
+	background:url(../img/bill_on.png);
+}
+#report{
+	background:url(../img/report_out.png);
+}
+#report:hover{
+	background:url(../img/report_on.png);
+}
+#information{
+	background:url(../img/information_out.png);
+}
+#information:hover{
+	background:url(../img/information_on.png);
+}
+#password{
+	background:url(../img/password_out.png);
+}
+
+#password:hover{
+	background:url(../img/password_on.png);
+}
+/*收尾，去掉调试所用的边框*/
+div,.menu>ul,.menu li{
+	border:0;
+}

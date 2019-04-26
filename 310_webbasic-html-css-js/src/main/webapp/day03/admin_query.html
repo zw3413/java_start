@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员查询</title>
+		<link rel="stylesheet" href="query.css"/>
+	</head>
+<body>
+
+	<!--logo区-->
+	<div class="logo">
+	<img src="../img/logo.png"/>
+	<a class="exit" href="#">[退出]</a>
+	</div>
+	
+	<!-- 菜单区 -->
+	<div class="menu">
+	<ul>
+	<li id="index"></li>
+	<li id="role"></li>
+	<li id="admin"></li>
+	<li id="fee"></li>
+	<li id="account"></li>
+	<li id="service"></li>
+	<li id="bill"></li>
+	<li id="report"></li>
+	<li id="information"></li>
+	<li id="password"></li>
+	</ul>
+	
+	</div>
+	
+	<!--核心 区 -->
+	<div class="core">
+	<!-- 渐变条:不分区也可，保留空间即可。 -->
+	
+	
+	
+	<!-- 内容区 -->
+	<div class="content">
+	<!-- 按钮区 -->
+	<div class="button">
+	<input type="button"  value="查询"/>
+	</div>
+	<!-- 数据区 -->
+	<div class="data">
+		<table>
+			<thead>
+				<tr>
+					<td><input type="checkbox"/>全选</td>
+					<td>管理员ID</td>
+					<td>姓名</td>
+					<td>拥有角色</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox"/></td>
+					<td>1</td>
+					<td>唐僧</td>
+					<td>和尚，师父，术士</td>
+					<td><input type="button" value="修改" class="update"><input type="button" value="删除" class="delete"></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"/></td>
+					<td>2</td>
+					<td>悟空</td>
+					<td>猴王，大师兄，德鲁伊</td>
+					<td><input type="button" value="修改" class="update"><input type="button" value="删除" class="delete"></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"/></td>
+					<td>3</td>
+					<td>八戒</td>
+					<td>元帅，二师兄，武器战</td>
+					<td><input type="button" value="修改" class="update"><input type="button" value="删除" class="delete"></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"/></td>
+					<td>4</td>
+					<td>沙僧</td>
+					<td>大将，三师弟，小鸡</td>
+					<td><input type="button" value="修改" class="update"><input type="button" value="删除" class="delete"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- 分页区 -->
+	<div class="pages"></div>
+	<!-- 消息区 -->
+		<div class="msg">
+			<img src="../img/close.png"/>
+			<p>操作成功</p>
+		</div>
+	</div>
+	</div>
+	
+	
+	<!-- 版权区 -->
+	<div class="copyright">
+	<p>
+	版权所有，盗版必究。
+	</p>
+	<p>
+	达内出品，必属精品。
+	</p>
+	</div>
+</body>
+</html>

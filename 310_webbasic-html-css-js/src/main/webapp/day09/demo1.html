@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自定义对象</title>
+
+<script>
+	//1.采用直接量的方法创建对象(JSON对象)
+	function f1() {
+		var student = {
+			"name" : "zhangsan",
+			"age" : 25,
+			"work" : function() {
+				alert("我学Java.");
+			}
+		};
+		alert(student.name);
+		alert(student.age);
+		student.work();
+	}
+	//2.构造器创建对象(首字母大写的函数就是构造器)
+	//2.1 JS内置构造器：
+	//特定 Date()  Array
+	//通用 Object()
+	function f2() {
+		var teacher = new Object();
+		teacher.name = "lisi";
+		teacher.age = 30;
+		teacher.work = function() {
+			alert("我教java");
+		}
+		alert(teacher.name);
+		alert(teacher.age);
+		teacher.work();
+	}
+	//2.2 自定义构造器(自定义一个首字母大写的函数，声明需要调用者传入的参数，另外还要将传入的值，保存在此对象上)
+	function Coder(name, age, work) {
+		this.name = name;
+		this.age = age;
+		//this指代当前对象，.work是给当前对象追加属性，  =work是给此属性赋值。
+		this.work = work;
+	}
+	function f3() {
+		var coder = new Coder("wangwu", 28, function() {
+			alert("我在编程");
+		});
+		alert(coder.name);
+		alert(coder.age);
+		coder.work();
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="按钮1" id="btn1" onclick="f1();" />
+	<input type="button" value="按钮2" id="btn2" onclick="f2();" />
+	<input type="button" value="按钮3" id="btn3" onclick="f3();" />
+</body>
+</html>

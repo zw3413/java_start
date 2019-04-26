@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择器</title>
+<style>
+	/*1.元素选择器*/
+	/*p{
+		color:red;
+	}*/
+	/*2.类选择器：根据class属性选择一类元素。*/
+	.springrain{
+		color:pink;
+	}
+	/*3.id选择器: */
+	#p4{
+		color:red; 
+	}
+	/*4.选择器组：写出一组选择器，可以选中其中每个选择器所对应目标的并集.*/
+	.love,#p4{
+		font-weight:bold;
+	}
+	/*5.派生选择器：*/
+	/*1)选择某元素的子孙*/
+	#p5 b{
+		color:blue;		
+	}
+	/*2）选择某元素的儿子*/
+	#p5>b{
+		font-size:30px;
+	}
+	
+	/*6.伪类选择器：选择某状态下的元素*/
+	/*1)选择未访问过的超连接*/
+	a:link{
+		color:green;
+	}
+
+	/*2)选择已访问过的超连接*/
+		a:visited{
+		color:red;
+	}
+	/*3)选择激活态的按钮*/
+		.btn:active{
+			color:red;		
+			background-color:green;
+		}
+	/*4)选择获取焦点的控件*/
+		.txt:focus{
+			background-color:yellow;
+		}
+	/*5)选择悬停态的图片*/
+		img:hover{
+			width:250px;
+			height:250px;
+		}
+	
+</style>
+</head>
+<body>
+	<p class="springrain">春雨润物细无声,有关春雨的。</p>
+	<p class="springrain">春风化雨暖人心，有关春雨的。</p>
+	<p class="love">爱情的力量是无比巨大的，有关爱情的</p>
+	<p id="p4">人类将拥有一些不同寻常的力量，有关力量的</p>
+	<p id="p5">
+	北京市<u>海淀区<b>北三环</b>西路</u>甲18号<b>中鼎大厦</b>B座8层
+	</p>
+	<p>
+		<a href="http://www.tmooc.cn" target="_blank">TMOOC</a>
+		<a href="http://doc.tedu.cn" target="_blank" >文档</a>
+		<a href="http://www.apple.com" target="_blank">苹果</a>
+		<a href="http://www.ganji.com" target="_blank">赶集</a>
+	</p>
+	<p>
+		<input type="button" value="注册" class="btn" />
+		<input type="button" value="登陆" class="btn" />
+	</p>
+	<p>
+		帐号：<input class="txt" type="text"/>
+	</p>
+	<p>
+		密码：<input class="txt" type="password"/>
+	</p>
+	<p>
+		<img src="../images/01.jpg"/>
+		<img src="../images/02.jpg"/>
+		<img src="../images/03.jpg"/>
+	</p>
+</body>
+</html>

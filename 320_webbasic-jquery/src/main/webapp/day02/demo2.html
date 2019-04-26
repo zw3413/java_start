@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>增删节点</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+var btn1;
+$(function(){
+
+	btn1=$('[value="追加"]');
+	var btn2=$('[value="插入"]');
+	var btn3=$('[value="删除"]');
+	var list=$('ul:first');
+	//创建节点
+	btn1[0].onclick=function(){
+		var tianjin=$('<li>天津</li>');
+		list.append(tianjin);
+	}
+	
+	btn2[0].onclick=function(){
+		var zhengzhou=$('<li>郑州</li>')
+		$('#gz').after(zhengzhou);
+	}
+	
+	btn3[0].onclick=function(){
+		$('#gz').remove();
+	}
+	
+	//根据层次查询节点
+	console.log($('#gz').parent());
+	console.log($('#gz').prev());
+	console.log($('#gz').next());
+	console.log($('#gz').siblings()	);
+	console.log($('ul').find($('li:not(li[id])')));
+	
+});
+
+
+
+
+</script>
+</head>
+<body>
+	<p>
+	<input type='button' value="追加" />
+	<input type='button' value="插入" />
+	<input type='button' value="删除" />
+	</p>
+	<ul>
+		<li>北京</li>
+		<li>上海</li>
+		<li id="gz">广州</li>
+		<li>深圳</li>
+		<li>杭州</li>
+	</ul>
+	
+</body>
+</html>

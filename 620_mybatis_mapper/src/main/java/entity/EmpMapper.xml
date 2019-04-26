@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="dao.EmployeeDAO">
+	
+	<!-- 
+		id:每一条sql语句应该有唯一的id(称之为sqlId).
+		parameterType:参数类型（要写类的完整的名字). 
+	 -->
+	<insert id="save" parameterType="entity.Employee">
+		INSERT INTO t_emp_zhangwei VALUES(s_emp_zhangwei.nextval,#{ename},#{salary},#{age})
+	</insert>
+	<!-- 
+		resultType:返回类型（要写类的完整名字）
+	 -->		
+	<select id="findAll" resultType="entity.Employee">
+		SELECT * FROM t_emp_zhangwei
+	</select>
+	
+	<select id="findById" parameterType="int" resultType="entity.Employee">
+		SELECT * FROM t_emp_zhangwei WHERE id=#{id}
+	</select>
+	
+	<update id="update" parameterType="entity.Employee">
+		UPDATE t_emp_zhangwei SET ename=#{ename},age=#{age},salary=#{salary} WHERE id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM t_emp_zhangwei WHERE id= #{id}
+	</delete>
+	
+	<!-- 
+		返回Map类型的结果 
+		即拿到MyBatis查询的中间结果.
+		注：
+			MyBatis会先将记录存放到一个对应的map对象里面，然后再将map中的数据存放到对应的实体对象里面。
+		
+		resultType的值如果是java.util.Map,可以简写成"map"。
+	-->
+	<select id="findById2" parameterType="int" resultType="map">
+		SELECT * FROM t_emp_zhangwei WHERE id=#{id}
+	</select>
+	
+	<!--  解决数据库字段名与实体类属性名不一致，使用resultMap来映射-->
+	<!-- resultMap用来告诉MyBatis,字段名与实体类的属性名的对应关系 -->
+	<resultMap type="entity.Employee2" id="emp2ResultMap">
+		<result property="empNo" column="id"/>
+		<result property="name" column="ename"/>
+	</resultMap>
+	
+	<select id="findById3" parameterType="int" resultMap="emp2ResultMap">
+		SELECT * FROM t_emp_zhangwei WHERE id=#{id}
+	</select>
+	
+</mapper>

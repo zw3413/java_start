@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>登录</title>
+<script type="text/javascript">
+	var spanObj=document.getElementById("span");
+	reg_un=/^[\w]{5,10}$/;
+	reg_pw=/^[\w]{8,16}$/;
+	var un_format="5-8位_、字母、数字";
+	var pw_format="8-16位_、字母、数字";
+	
+function checkCodeUn(){
+	var usernameObj=document.getElementById("username");
+	var span1Obj=document.getElementById("span1");
+	username=usernameObj.value;
+	var b=reg_un.test(username)
+	if(b){
+		span1Obj.innerHTML="ok:"+un_format	;
+		span1Obj.className="ok";
+		return true;
+	}else{
+		span1Obj.innerHTML="error:" +un_format	;
+		span1Obj.className="error";
+		return false;
+	}
+}
+function checkCodePw(){
+	var passwordObj=document.getElementById("password");
+	var span2Obj=document.getElementById("span2");
+	password=passwordObj.value;
+	var b=reg_pw.test(password)
+	if(b){
+		span2Obj.innerHTML="ok: "+pw_format	;
+		span2Obj.className="ok";
+		return true;
+	}else{
+		span2Obj.innerHTML="error: "+pw_format;
+		span2Obj.className="error";
+		return false;
+	}
+}
+
+
+</script>
+<style type="text/css">
+
+.error{
+color:red;
+}
+.ok{
+color:green;
+}
+
+</style>
+</head>
+<body>
+	<center>
+		<h1>登录</h1>
+		<form action="login" method="GET" 
+		onsubmit='if (!(checkCodeUn() && checkCodePw())){ 
+			alert("用户名或密码格式不对。\n请重新输入。");
+			return false;
+			}else{alert("输入正确");
+			return true;}'>
+			<table border="1" style="border-collapse:collapse">
+				<tr> <td colspan="3" > <span id="span" style="text-align:left; font-size:10px">这里提示输入验证结果</span></td></tr>
+				<tr>
+					<td>用户名</td>
+					<td><input name="username" type="txt" size="30" id="username" onblur="checkCodeUn(reg_un)"/>
+					<td style="font-size:10px"><span id="span1"><script>var span=document.getElementById("span1");span.innerHTML=un_format;</script></span></td>
+				</tr>
+				<tr>
+					<td>密码</td>
+					<td><input name="password" type="txt" size="30" id="password" onblur="checkCodePw(reg_pw)"/>
+					<td style="font-size:10px"><span id="span2"><script>var span=document.getElementById("span2");span.innerHTML=pw_format;</script></span></td>
+				</tr>
+				<tr style="border:0">
+					<td colspan="3" align="center" style="border:0"><input type="submit"
+						value="登录"  /></td>
+				</tr>
+			</table>
+		</form>
+	</center>
+</body>
+</html>
